@@ -1,0 +1,16 @@
+/code/VerbInflector/
+/code/VerbInflector/target/
+
+# IntelliJ Idea
+*.iml
+.idea
+*.ipr
+*.iws
+
+# Mac OS Cruft
+.DS_Store
+
+# Netbeans
+/code/VerbInflector/nb-configuration.xml
+
+/code/VerbInflector/formatter.xml
