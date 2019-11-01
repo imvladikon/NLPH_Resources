@@ -11,9 +11,7 @@ public class LettersAtFeature extends Feature{
 		this.possition = f.getPossition();
 		HebrewLetter[] larr = this.featureLetters;
 		HebrewLetter[] larrCopy = new HebrewLetter[larr.length];
-		for(int i=0; i<larrCopy.length; i++){
-			larrCopy[i] = new HebrewLetter(larr[i]);
-		}
+		System.arraycopy(larr, 0, larrCopy, 0, larrCopy.length);
 	}
 	
 	public LettersAtFeature(int pos, HebrewLetter[] featureLetters){
@@ -36,10 +34,10 @@ public class LettersAtFeature extends Feature{
 	}
 	
 	private String makeLettersString() {
-		String ret = new String();
+		String ret = "";
 		for(int i=0;i<this.featureLetters.length;i++){
 			String spacing = (i==0) ? "" : Feature.featureDelimiterToken;
-			ret += spacing+this.featureLetters[i].getLetterName();
+			ret += spacing+this.featureLetters[i].name();
 		}
 		return ret;
 	}

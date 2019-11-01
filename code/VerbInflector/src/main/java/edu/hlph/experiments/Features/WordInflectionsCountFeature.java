@@ -17,6 +17,8 @@ import edu.hlph.fileReadersAndWriters.corporaFileReaders.MorphologyAnalyzedCorpo
 import edu.hlph.fileReadersAndWriters.corporaFileReaders.MorphologyAnalyzedCorporaReader.TaggerTime;
 
 
+import edu.hlph.hebrewBasicsImplementation.letters.Literals;
+import edu.hlph.hebrewBasicsImplementation.letters.NikkudEnum;
 import edu.hlph.tablesImplementation.table.Table;
 
 import edu.hlph.hebrewBasicsImplementation.letters.HebrewLetter;
@@ -62,7 +64,7 @@ public class WordInflectionsCountFeature extends Feature{
 		ArrayList<String> infs = new ArrayList<String>();
 		for(VerbInflection i : inflections){
 			int currInfCount = 0;
-			String word = getNonVocalizedString(i.getLetters()).replaceAll(HebrewLetter.SHIN_DOT, "").replaceAll(HebrewLetter.SIN_DOT, "");
+			String word = getNonVocalizedString(i.getLetters()).replaceAll(Literals.SHIN_DOT, "").replaceAll(Literals.SIN_DOT, "");
 			Time t = i.getTime();
 			Gender g = i.getGender();
 			Person p = i.getPerson();

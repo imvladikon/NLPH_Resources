@@ -1,5 +1,6 @@
 /code/VerbInflector/
 /code/VerbInflector/target/
+/.idea/
 
 # IntelliJ Idea
 *.iml

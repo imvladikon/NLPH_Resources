@@ -3,9 +3,8 @@
   <component name="EclipseCodeFormatterProjectSettings">
     <option name="projectSpecificProfile">
       <ProjectSpecificProfile>
-        <option name="formatter" value="ECLIPSE" />
         <option name="pathToConfigFileJava" value="$PROJECT_DIR$/code/VerbInflector/formatter.xml" />
-        <option name="selectedJavaProfile" value="AAA_Cadd" />
+        <option name="selectedJavaProfile" value="nlph" />
       </ProjectSpecificProfile>
     </option>
   </component>

@@ -17,13 +17,13 @@ import edu.hlph.tablesImplementation.table.Table;
 import edu.hlph.tablesImplementation.table.UnknownTableException;
 import edu.hlph.tablesImplementation.table.UnknownVerbBaseFormException;
 import edu.hlph.fileReadersAndWriters.MyFileReader.MyFileReader;
-import edu.hlph.tablesImplementation.a.*;
-import edu.hlph.tablesImplementation.b.*;
-import edu.hlph.tablesImplementation.c.*;
-import edu.hlph.tablesImplementation.d.*;
-import edu.hlph.tablesImplementation.e.*;
-import edu.hlph.tablesImplementation.f.*;
-import edu.hlph.tablesImplementation.g.*;
+import edu.hlph.tablesImplementation.paal.*;
+import edu.hlph.tablesImplementation.nifal.*;
+import edu.hlph.tablesImplementation.piel.*;
+import edu.hlph.tablesImplementation.pual.*;
+import edu.hlph.tablesImplementation.hitpael.*;
+import edu.hlph.tablesImplementation.hifil.*;
+import edu.hlph.tablesImplementation.hufal.*;
 
 public class VerbCSVReader extends MyFileReader{
 

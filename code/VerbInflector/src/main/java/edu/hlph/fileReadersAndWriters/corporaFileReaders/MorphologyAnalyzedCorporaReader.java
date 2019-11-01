@@ -13,13 +13,13 @@ public class MorphologyAnalyzedCorporaReader{
 
 	private HashMap<String, Integer> _verbsCount;
 	private int linesRead;
-	public static enum TaggerTime {E,PAST,BEINONI,FUTURE,IMPERATIVE,INFINITIVE};
-	public static enum TaggerGender {E,M,F,MF};
-	public static enum TaggerPerson {E,ONE,TWO,THREE,A};
-	public static enum TaggerNumber {E,S,P};
+	public enum TaggerTime {E,PAST,BEINONI,FUTURE,IMPERATIVE,INFINITIVE};
+	public enum TaggerGender {E,M,F,MF};
+	public enum TaggerPerson {E,ONE,TWO,THREE,A};
+	public enum TaggerNumber {E,S,P};
 
 	public MorphologyAnalyzedCorporaReader(){
-		this._verbsCount = new HashMap<String, Integer>();
+		this._verbsCount = new HashMap<>();
 		this.linesRead = 0;
 	}
 	
@@ -87,7 +87,7 @@ public class MorphologyAnalyzedCorporaReader{
 							word.setTime(TaggerTime.BEINONI);
 						}
 						if (word.getWord() != null){
-							String w = word.toString().replaceAll(HebrewLetter.SHIN_DOT, "").replaceAll(HebrewLetter.SIN_DOT, "");
+							String w = word.toString().replaceAll(Literals.SHIN_DOT, "").replaceAll(Literals.SIN_DOT, "");
 							if(this._verbsCount.containsKey(w)){
 								this._verbsCount.put(w, this._verbsCount.get(w)+1);
 							}else{
@@ -243,56 +243,55 @@ public class MorphologyAnalyzedCorporaReader{
 			return ret;
 		}
 
+		//TODO:refactor
 		private HebrewLetter convertTiatukLetterToHebrew(String tiatukLetter){
 			if(tiatukLetter.equals("A")){
-				return new Alef();
+				return HebrewLetter.ALEF;
 			} else if(tiatukLetter.equals("B")){
-				return new Bet();
+				return HebrewLetter.BET;
 			} else if(tiatukLetter.equals("G")){
-				return new Gimel();
+				return HebrewLetter.GIMEL;
 			} else if(tiatukLetter.equals("D")){
-				return new Dalet();
+				return HebrewLetter.DALET;
 			} else if(tiatukLetter.equals("H")){
-				return new Hey();
+				return HebrewLetter.HEY;
 			} else if(tiatukLetter.equals("W")){
-				return new Vav();
+				return HebrewLetter.VAV;
 			} else if(tiatukLetter.equals("Z")){
-				return new Zain();
+				return HebrewLetter.ZAIN;
 			} else if(tiatukLetter.equals("X")){
-				return new Het();
+				return HebrewLetter.HET;
 			} else if(tiatukLetter.equals("J")){
-				return new Tet();
+				return HebrewLetter.TET;
 			} else if(tiatukLetter.equals("I")){
-				return new Yod();
+				return HebrewLetter.YOD;
 			} else if(tiatukLetter.equals("K")){
-				return new Kaf();
+				return HebrewLetter.KAF;
 			} else if(tiatukLetter.equals("L")){
-				return new Lamed();
+				return HebrewLetter.LAMED;
 			} else if(tiatukLetter.equals("M")){
-				return new Mem();
+				return HebrewLetter.MEM;
 			} else if(tiatukLetter.equals("N")){
-				return new Nun();
+				return HebrewLetter.NUN;
 			} else if(tiatukLetter.equals("S")){
-				return new Samech();
+				return HebrewLetter.SAMECH;
 			} else if(tiatukLetter.equals("E")){
-				return new Ain();
+				return HebrewLetter.AIN;
 			} else if(tiatukLetter.equals("P")){
-				return new Peh();
+				return HebrewLetter.PEH;
 			} else if(tiatukLetter.equals("C")){
-				return new Tsadi();
+				return HebrewLetter.TSADI;
 			} else if(tiatukLetter.equals("Q")){
-				return new Kuf();
+				return HebrewLetter.KUF;
 			} else if(tiatukLetter.equals("R")){
-				return new Reish();
+				return HebrewLetter.REISH;
 			} else if(tiatukLetter.equals("F")){
-				return new Shin();
+				return HebrewLetter.SHIN;
 			} else if(tiatukLetter.equals("T")){
-				return new Tav();
+				return HebrewLetter.TAV;
 			} else {
 				return null;
 			}
 		}
-		
 	}
 }
-

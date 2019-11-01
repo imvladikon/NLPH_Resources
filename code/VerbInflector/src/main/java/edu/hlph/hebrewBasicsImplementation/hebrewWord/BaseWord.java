@@ -1,8 +1,7 @@
 package edu.hlph.hebrewBasicsImplementation.hebrewWord;
 
-
-
 import java.util.ArrayList;
+import java.util.Arrays;
 
 import edu.hlph.hebrewBasicsImplementation.letters.*;
 
@@ -12,18 +11,14 @@ public class BaseWord {
 	
 	
 	public BaseWord(HebrewLetter[] letterArr){
-		_word = new ArrayList<HebrewLetter>();
-		for (int i=0; i<letterArr.length; i++){
-			_word.add(letterArr[i]);
-		}
+		_word = new ArrayList<>();
+		_word.addAll(Arrays.asList(letterArr));
 	}
 	
 	public BaseWord(BaseWord iw){
-		_word = new ArrayList<HebrewLetter>();
+		_word = new ArrayList<>();
 		ArrayList<HebrewLetter> letters = iw.getLetters();
-		for (int i=0; i<letters.size(); i++){
-			_word.add(new HebrewLetter(letters.get(i)));
-		}
+		_word.addAll(letters);
 	}
 	
 	public ArrayList<HebrewLetter> getLetters(){

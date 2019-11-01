@@ -10,6 +10,7 @@ import edu.hlph.fileReadersAndWriters.corporaFileReaders.MorphologyAnalyzedCorpo
 
 
 import edu.hlph.hebrewBasicsImplementation.letters.HebrewLetter;
+import edu.hlph.hebrewBasicsImplementation.letters.Literals;
 
 
 public class VerbsInCorporaStat {
@@ -33,24 +34,24 @@ public class VerbsInCorporaStat {
 			String[] splittedInf = inf.split(",");
 			String vocalizedInf = splittedInf[2];
 			
-			String nonVocalizedInf = vocalizedInf.replaceAll(HebrewLetter.DAGESH, "");
-			nonVocalizedInf = nonVocalizedInf.replaceAll(HebrewLetter.H_KAMATS, "");
-			nonVocalizedInf = nonVocalizedInf.replaceAll(HebrewLetter.H_PATAH, "");
-			nonVocalizedInf = nonVocalizedInf.replaceAll(HebrewLetter.H_SEGOL, "");
-			nonVocalizedInf = nonVocalizedInf.replaceAll(HebrewLetter.HIRIK, "");
-			nonVocalizedInf = nonVocalizedInf.replaceAll(HebrewLetter.HOLAM_H, "");
-			nonVocalizedInf = nonVocalizedInf.replaceAll(HebrewLetter.HOLAM_M, "");
-			nonVocalizedInf = nonVocalizedInf.replaceAll(HebrewLetter.KAMATS, "");
-			nonVocalizedInf = nonVocalizedInf.replaceAll(HebrewLetter.KAMATS_KATAN, "");
-			nonVocalizedInf = nonVocalizedInf.replaceAll(HebrewLetter.KUBUTS, "");
-			nonVocalizedInf = nonVocalizedInf.replaceAll(HebrewLetter.MAPIK, "");
-			nonVocalizedInf = nonVocalizedInf.replaceAll(HebrewLetter.PATAH, "");
-			nonVocalizedInf = nonVocalizedInf.replaceAll(HebrewLetter.SEGOL, "");
-			nonVocalizedInf = nonVocalizedInf.replaceAll(HebrewLetter.SHIN_DOT, "");
-			nonVocalizedInf = nonVocalizedInf.replaceAll(HebrewLetter.SHURUK, "");
-			nonVocalizedInf = nonVocalizedInf.replaceAll(HebrewLetter.SHVA, "");
-			nonVocalizedInf = nonVocalizedInf.replaceAll(HebrewLetter.SIN_DOT, "");
-			nonVocalizedInf = nonVocalizedInf.replaceAll(HebrewLetter.TSERE, "");
+			String nonVocalizedInf = vocalizedInf.replaceAll(Literals.DAGESH, "");
+			nonVocalizedInf = nonVocalizedInf.replaceAll(Literals.H_KAMATS, "");
+			nonVocalizedInf = nonVocalizedInf.replaceAll(Literals.H_PATAH, "");
+			nonVocalizedInf = nonVocalizedInf.replaceAll(Literals.H_SEGOL, "");
+			nonVocalizedInf = nonVocalizedInf.replaceAll(Literals.HIRIK, "");
+			nonVocalizedInf = nonVocalizedInf.replaceAll(Literals.HOLAM_H, "");
+			nonVocalizedInf = nonVocalizedInf.replaceAll(Literals.HOLAM_M, "");
+			nonVocalizedInf = nonVocalizedInf.replaceAll(Literals.KAMATS, "");
+			nonVocalizedInf = nonVocalizedInf.replaceAll(Literals.KAMATS_KATAN, "");
+			nonVocalizedInf = nonVocalizedInf.replaceAll(Literals.KUBUTS, "");
+			nonVocalizedInf = nonVocalizedInf.replaceAll(Literals.MAPIK, "");
+			nonVocalizedInf = nonVocalizedInf.replaceAll(Literals.PATAH, "");
+			nonVocalizedInf = nonVocalizedInf.replaceAll(Literals.SEGOL, "");
+			nonVocalizedInf = nonVocalizedInf.replaceAll(Literals.SHIN_DOT, "");
+			nonVocalizedInf = nonVocalizedInf.replaceAll(Literals.SHURUK, "");
+			nonVocalizedInf = nonVocalizedInf.replaceAll(Literals.SHVA, "");
+			nonVocalizedInf = nonVocalizedInf.replaceAll(Literals.SIN_DOT, "");
+			nonVocalizedInf = nonVocalizedInf.replaceAll(Literals.TSERE, "");
 			
 			//String[] morphAttrs = splittedInf[3].split("+");
 			this.knownVerbs.add(nonVocalizedInf);

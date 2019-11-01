@@ -122,8 +122,8 @@ public class VerbTablesDistanceMatric extends ClassDistanceMetric{
                             for(VerbInflection infI : iInfs){
                                 for(VerbInflection infJ : jInfs){
                                     // ignoring SHVAIIM
-                                    String w1 = infI.toString().replace(HebrewLetter.DAGESH, "");
-                                    String w2 = infJ.toString().replace(HebrewLetter.DAGESH, "");
+                                    String w1 = infI.toString().replace(Literals.DAGESH, "");
+                                    String w2 = infJ.toString().replace(Literals.DAGESH, "");
                                     int currentMatchScore = edc.calc(w1, w2);
                                     if(currentMatchScore<minMatchScore){
                                         minMatchScore = currentMatchScore;
@@ -161,7 +161,7 @@ public class VerbTablesDistanceMatric extends ClassDistanceMetric{
     private HebrewLetter[] makeMockupWord(int size){
         HebrewLetter[] ret = new HebrewLetter[size];
         for(int i=0; i<size; i++){
-            ret[i] = new Bet();
+            ret[i] = HebrewLetter.BET;
         }
         return ret;
     }

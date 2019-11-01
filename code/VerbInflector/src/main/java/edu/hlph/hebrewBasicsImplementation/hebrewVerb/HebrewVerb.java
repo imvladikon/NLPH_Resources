@@ -25,11 +25,8 @@ public class HebrewVerb {
 	protected Spelling _spelling;
 
 	public HebrewVerb(BaseWord iw){
-		_word = new ArrayList<HebrewLetter>();
-		ArrayList<HebrewLetter> letters = iw.getLetters();
-		for (int i=0; i<letters.size(); i++){
-			_word.add(new HebrewLetter(letters.get(i)));
-		}
+		_word = new ArrayList<>();
+		_word.addAll(iw.getLetters());
 		_pointer = 0;
 		_time = Time.E;
 		_gender = Gender.E;
@@ -39,9 +36,9 @@ public class HebrewVerb {
 	}
 
 	public HebrewVerb(HebrewVerb w){
-		_word = new ArrayList<HebrewLetter>();
+		_word = new ArrayList<>();
 		for (int i=0; i<w.length();i++){
-			_word.add(new HebrewLetter(w.getLetter(i)));
+			_word.add(w.getLetter(i));
 		}
 		_pointer = 0;
 		_time = w.getTime();
@@ -137,21 +134,21 @@ public class HebrewVerb {
 		return _word;
 	}
 	
-	public String getVocalization(){
-		return _word.get(_pointer).getVocalization();
-	}
-
-	public String getDagesh(){
-		return _word.get(_pointer).getDagesh();
-	}
-
-	public String getMapik(){
-		return _word.get(_pointer).getMapik();
-	}
-
-	public boolean getFinLetter(){
-		return _word.get(_pointer).getFinLetter();
-	}
+//	public String getVocalization(){
+//		return _word.get(_pointer).getVocalization();
+//	}
+//
+//	public String getDagesh(){
+//		return _word.get(_pointer).getDagesh();
+//	}
+//
+//	public String getMapik(){
+//		return _word.get(_pointer).getMapik();
+//	}
+//
+//	public boolean getFinLetter(){
+//		return _word.get(_pointer).getFinLetter();
+//	}
 
 	/*
 	 * Setters
@@ -160,95 +157,45 @@ public class HebrewVerb {
 	// All non last letters are unfinalized+MAPIK removed, the last letter is finalized.  
 	public void finalizeWord(){
 		for(int i=0; i<_word.size()-1; i++){
-			_word.get(i).unfinalizeLetter();
-			_word.get(i).removeMapik();
+			HebrewLetter letter = _word.get(i).unfinalizeLetter();
+			if(!letter.equals(_word.get(i))) {
+				_word.set(i, letter);
+			}
+			_word.get(i).withoutMapik();
 		}
-		_word.get(_word.size()-1).finalizeLetter();
+		HebrewLetter letter = _word.get(_word.size() - 1).finalizeLetter();
+		if(!letter.equals(_word.get(_word.size() - 1))) {
+			_word.set(_word.size() - 1, letter);
+		}
 	}
 
 
 	// Vocalization setters
 
-	public void setVocalization_SHVA() {
-		_word.get(_pointer).setVocalization_SHVA();
+	public void withNikkud(NikkudEnum vocalization) {
+		_word.get(_pointer).withNikkud(vocalization);
 	}
 
-	public void setVocalization_H_SEGOL() {
-		_word.get(_pointer).setVocalization_H_SEGOL();
-	}
-
-	public void setVocalization_H_PATAH() {
-		_word.get(_pointer).setVocalization_H_PATAH();
-	}
-
-	public void setVocalization_H_KAMATS() {
-		_word.get(_pointer).setVocalization_H_KAMATS();
-	}
-
-	public void setVocalization_HIRIK() {
-		_word.get(_pointer).setVocalization_HIRIK();
-	}
-
-	public void setVocalization_TSERE() {
-		_word.get(_pointer).setVocalization_TSERE();
-	}
-
-	public void setVocalization_SEGOL() {
-		_word.get(_pointer).setVocalization_SEGOL();
-	}
-
-	public void setVocalization_PATAH() {
-		_word.get(_pointer).setVocalization_PATAH();
-	}
-
-	public void setVocalization_KAMATS() {
-		_word.get(_pointer).setVocalization_KAMATS();
-	}
-	
-	public void setVocalization_KAMATS_KATAN() {
-		_word.get(_pointer).setVocalization_KAMATS_KATAN();
-	}
-
-	public void setVocalization_HOLAM_H() {
-		_word.get(_pointer).setVocalization_HOLAM_H();
-	}
-
-	public void setVocalization_KUBUTS() {
-		_word.get(_pointer).setVocalization_KUBUTS();
-	}
-
-	public void setVocalization_DAGESH() {
-		_word.get(_pointer).setVocalization_DAGESH();
-	}
-
-	public void setVocalization_MAPIK() {
-		_word.get(_pointer).setVocalization_MAPIK();
-	}
-
-	public void setVocalization_SHURUK() {
-		_word.get(_pointer).setVocalization_SHURUK();
-	}
-
-	public void setVocalization_HOLAM_M() {
-		_word.get(_pointer).setVocalization_HOLAM_M();
-	} // Only Vav have this.
-
-	public void setVocalization_DAGESH_IF_BEGEDKEFET(){
-		_word.get(_pointer).setVocalization_DAGESH_BEGEDKEFET();
+	public void withDageshBegedKefet(){
+		_word.get(_pointer).withDageshBegedKefet();
 	}
 
 	// Vocalization removers
 
-	public void removeVocalization() {
-		_word.get(_pointer).removeVocalization();
+	public void withoutNikkud() {
+		_word.get(_pointer).withoutNikkud();
 	}
 
-	public void removeDagesh() {
-		_word.get(_pointer).removeDagesh();
+	public void withoutDagesh() {
+		_word.get(_pointer).withoutDagesh();
 	}
 
-	public void removeMapik() {
-		_word.get(_pointer).removeMapik();
+	public void withDagesh() {
+		_word.get(_pointer).withDagesh();
+	}
+
+	public void withoutMapik() {
+		_word.get(_pointer).withoutMapik();
 	}
 
 	public boolean isFinLetter(){

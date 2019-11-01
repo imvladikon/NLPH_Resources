@@ -7,6 +7,7 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 import edu.hlph.hebrewBasicsImplementation.letters.HebrewLetter;
+import edu.hlph.hebrewBasicsImplementation.letters.NikkudEnum;
 
 public class MyFileReader {
 	
@@ -40,7 +41,7 @@ public class MyFileReader {
 	protected HebrewLetter[] lettersToArray(String w){
 		ArrayList<HebrewLetter> lettersList = new ArrayList<HebrewLetter>();
 		for(int i=0; i<w.length();i++){
-			if ((i+1<w.length())&&(HebrewLetter.QUOTE.equals(w.substring(i+1, i+2)))){
+			if ((i+1<w.length())&&(NikkudEnum.QUOTE.equals(w.substring(i+1, i+2)))){
 				lettersList.add(HebrewLetter.makeLetterFromString(w.substring(i,i+2)));
 				i++;
 			}

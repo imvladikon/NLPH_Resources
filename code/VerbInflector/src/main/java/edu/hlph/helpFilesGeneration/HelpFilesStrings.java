@@ -3,6 +3,7 @@ package edu.hlph.helpFilesGeneration;
 import java.net.URL;
 
 import edu.hlph.hebrewBasicsImplementation.letters.HebrewLetter;
+import edu.hlph.hebrewBasicsImplementation.letters.NikkudEnum;
 
 public class HelpFilesStrings {
 
@@ -105,7 +106,7 @@ public class HelpFilesStrings {
 					"			The input for the generation option is a file encoded in UTF-8, which contains\n" +
 					"			a base-form in each row. The base forms should be written in simple, non-vocalized, Hebrew\n" +
 					"			characters with few exceptions:\n" +
-					"				(i)		To denote " + HebrewLetter.SHIN + HebrewLetter.SIN_DOT + " we write '" + HebrewLetter.SHIN + ".\n" +
+					"				(i)		To denote " + HebrewLetter.SHIN + NikkudEnum.SIN_DOT + " we write '" + HebrewLetter.SHIN + ".\n" +
 					"				(ii)	The letters '" + HebrewLetter.GIMEL + " and '" + HebrewLetter.TSADI + " are also valid.\n" +
 					"			Other than the base-form, the file has to indicate an appropriate inflection table for\n" +
 					"			each base-form. The inflection table is given by writing the Binyan corresponding to\n" +
@@ -144,7 +145,7 @@ public class HelpFilesStrings {
 					"									tense+person+gender+number+spelling scheme\n" +
 					"				Base-form	- 	The vocalized base-form corresponding to the inflection\n" +
 					"			For example, the row:\n" +
-					"				C,1," + HebrewLetter.ALEF + HebrewLetter.HIRIK + HebrewLetter.YOD + HebrewLetter.PEH + HebrewLetter.DAGESH + HebrewLetter.PATAH + HebrewLetter.SAMECH + HebrewLetter.SHVA + HebrewLetter.TAV + HebrewLetter.HIRIK + HebrewLetter.YOD +",PAST+FIRST+MF+SINGULAR+COMPLETE," + HebrewLetter.ALEF + HebrewLetter.HIRIK + HebrewLetter.PEH + HebrewLetter.DAGESH + HebrewLetter.TSERE + HebrewLetter.SAMECH + "\n" +
+					"				C,1," + HebrewLetter.ALEF + NikkudEnum.HIRIK + HebrewLetter.YOD + HebrewLetter.PEH + NikkudEnum.DAGESH + NikkudEnum.PATAH + HebrewLetter.SAMECH + NikkudEnum.SHVA + HebrewLetter.TAV + NikkudEnum.HIRIK + HebrewLetter.YOD +",PAST+FIRST+MF+SINGULAR+COMPLETE," + HebrewLetter.ALEF + NikkudEnum.HIRIK + HebrewLetter.PEH + NikkudEnum.DAGESH + NikkudEnum.TSERE + HebrewLetter.SAMECH + "\n" +
 					"			Will be one of the generated rows in the output file if the following line is given in\n" +
 					"			the input file:\n" +
 					"				" + HebrewLetter.ALEF + HebrewLetter.PEH + HebrewLetter.SAMECH + ",C,1\n" +
@@ -171,14 +172,14 @@ public class HelpFilesStrings {
 			"				The input for this syllable segmentation by heuristic option is a file encoded in UTF-8,\n" +
 			"				which contains a vocalized Hebrew word in each row. For example, here are some rows that may\n" +
 			"				be written in the input file:\n" +
-			"					" + HebrewLetter.ALEF + HebrewLetter.HIRIK + HebrewLetter.YOD + HebrewLetter.PEH + HebrewLetter.DAGESH + HebrewLetter.PATAH + HebrewLetter.SAMECH + HebrewLetter.SHVA + HebrewLetter.TAV + HebrewLetter.DAGESH + HebrewLetter.HIRIK + HebrewLetter.YOD + "\n" +
-			"					" + HebrewLetter.HEY + HebrewLetter.HIRIK + HebrewLetter.TAV + HebrewLetter.SHVA + HebrewLetter.PEH + HebrewLetter.DAGESH + HebrewLetter.PATAH + HebrewLetter.NUN + HebrewLetter.SHVA + HebrewLetter.TSADI + HebrewLetter.SHVA + "'" + HebrewLetter.REISH + HebrewLetter.VAV + HebrewLetter.SHURUK + "\n" +
+			"					" + HebrewLetter.ALEF + NikkudEnum.HIRIK + HebrewLetter.YOD + HebrewLetter.PEH + NikkudEnum.DAGESH + NikkudEnum.PATAH + HebrewLetter.SAMECH + NikkudEnum.SHVA + HebrewLetter.TAV + NikkudEnum.DAGESH + NikkudEnum.HIRIK + HebrewLetter.YOD + "\n" +
+			"					" + HebrewLetter.HEY + NikkudEnum.HIRIK + HebrewLetter.TAV + NikkudEnum.SHVA + HebrewLetter.PEH + NikkudEnum.DAGESH + NikkudEnum.PATAH + HebrewLetter.NUN + NikkudEnum.SHVA + HebrewLetter.TSADI + NikkudEnum.SHVA + "'" + HebrewLetter.REISH + HebrewLetter.VAV + NikkudEnum.SHURUK + "\n" +
 			"			Output specification:\n" +
 			"				The output UTF-8 file will include a vocalized Hebrew word that is segmented to syllables\n" +
 			"				in each row. The syllables are delimited by the \"-\" character. For example, here are the\n" +
 			"				output lines corresponding to the previous input lines:\n" +
-			"					" + "-" + HebrewLetter.ALEF + HebrewLetter.HIRIK + HebrewLetter.YOD + "-" + HebrewLetter.PEH + HebrewLetter.DAGESH + HebrewLetter.PATAH + HebrewLetter.SAMECH + HebrewLetter.SHVA + "-" + HebrewLetter.TAV + HebrewLetter.DAGESH + HebrewLetter.HIRIK + HebrewLetter.YOD + "\n" +
-			"					" + "-" + HebrewLetter.HEY + HebrewLetter.HIRIK + HebrewLetter.TAV + HebrewLetter.SHVA + "-" + HebrewLetter.PEH + HebrewLetter.DAGESH + HebrewLetter.PATAH + HebrewLetter.NUN + HebrewLetter.SHVA + "-" + HebrewLetter.TSADI + HebrewLetter.SHVA + "'" + HebrewLetter.REISH + HebrewLetter.VAV + HebrewLetter.SHURUK + "\n" +
+			"					" + "-" + HebrewLetter.ALEF + NikkudEnum.HIRIK + HebrewLetter.YOD + "-" + HebrewLetter.PEH + NikkudEnum.DAGESH + NikkudEnum.PATAH + HebrewLetter.SAMECH + NikkudEnum.SHVA + "-" + HebrewLetter.TAV + NikkudEnum.DAGESH + NikkudEnum.HIRIK + HebrewLetter.YOD + "\n" +
+			"					" + "-" + HebrewLetter.HEY + NikkudEnum.HIRIK + HebrewLetter.TAV + NikkudEnum.SHVA + "-" + HebrewLetter.PEH + NikkudEnum.DAGESH + NikkudEnum.PATAH + HebrewLetter.NUN + NikkudEnum.SHVA + "-" + HebrewLetter.TSADI + NikkudEnum.SHVA + "'" + HebrewLetter.REISH + HebrewLetter.VAV + NikkudEnum.SHURUK + "\n" +
 			"			Usage:\n" +
 			"				In order to use the syllable segmentation by heuristic (A) functionality, run the Jar file in\n" +
 			"				the following way:\n" +
@@ -222,12 +223,12 @@ public class HelpFilesStrings {
 			"				The input for this syllable segmentation by heuristic option is a file encoded in UTF-8,\n" +
 			"				which contains a vocalized Hebrew word and its corresponding vocalized base-tense-form/absolute state in each row.\n" +
 			"				For example, here are some rows that may be written in the input file:\n" +
-			"					" + HebrewLetter.ALEF + HebrewLetter.HIRIK + HebrewLetter.YOD + HebrewLetter.PEH + HebrewLetter.DAGESH + HebrewLetter.TSERE + HebrewLetter.SAMECH +
-								"," + HebrewLetter.ALEF + HebrewLetter.HIRIK + HebrewLetter.YOD + HebrewLetter.PEH + HebrewLetter.DAGESH + HebrewLetter.PATAH + HebrewLetter.SAMECH + HebrewLetter.SHVA + HebrewLetter.TAV + HebrewLetter.DAGESH + HebrewLetter.HIRIK + HebrewLetter.YOD + "\n" +
-			"					" + HebrewLetter.HEY + HebrewLetter.HIRIK + HebrewLetter.TAV + HebrewLetter.SHVA + HebrewLetter.PEH + HebrewLetter.DAGESH + HebrewLetter.PATAH + HebrewLetter.NUN + HebrewLetter.SHVA + HebrewLetter.TSADI + HebrewLetter.TSERE + "'" + HebrewLetter.REISH + 
-								"," + HebrewLetter.HEY + HebrewLetter.HIRIK + HebrewLetter.TAV + HebrewLetter.SHVA + HebrewLetter.PEH + HebrewLetter.DAGESH + HebrewLetter.PATAH + HebrewLetter.NUN + HebrewLetter.SHVA + HebrewLetter.TSADI + HebrewLetter.SHVA + "'" + HebrewLetter.REISH + HebrewLetter.VAV + HebrewLetter.SHURUK + "\n" +
-			"					" + HebrewLetter.MEM + HebrewLetter.PATAH + HebrewLetter.TAV + HebrewLetter.DAGESH + HebrewLetter.KAMATS + HebrewLetter.NUN + HebrewLetter.KAMATS + HebrewLetter.HEY +  
-								"," + HebrewLetter.MEM + HebrewLetter.PATAH + HebrewLetter.TAV + HebrewLetter.DAGESH + HebrewLetter.SHVA + HebrewLetter.NUN + HebrewLetter.VAV + HebrewLetter.HOLAM_M + HebrewLetter.TAV + HebrewLetter.TSERE + HebrewLetter.YOD + HebrewLetter.KAF + HebrewLetter.SEGOL + HebrewLetter.NUN_SOFIT + "\n" +
+			"					" + HebrewLetter.ALEF + NikkudEnum.HIRIK + HebrewLetter.YOD + HebrewLetter.PEH + NikkudEnum.DAGESH + NikkudEnum.TSERE + HebrewLetter.SAMECH +
+								"," + HebrewLetter.ALEF + NikkudEnum.HIRIK + HebrewLetter.YOD + HebrewLetter.PEH + NikkudEnum.DAGESH + NikkudEnum.PATAH + HebrewLetter.SAMECH + NikkudEnum.SHVA + HebrewLetter.TAV + NikkudEnum.DAGESH + NikkudEnum.HIRIK + HebrewLetter.YOD + "\n" +
+			"					" + HebrewLetter.HEY + NikkudEnum.HIRIK + HebrewLetter.TAV + NikkudEnum.SHVA + HebrewLetter.PEH + NikkudEnum.DAGESH + NikkudEnum.PATAH + HebrewLetter.NUN + NikkudEnum.SHVA + HebrewLetter.TSADI + NikkudEnum.TSERE + "'" + HebrewLetter.REISH +
+								"," + HebrewLetter.HEY + NikkudEnum.HIRIK + HebrewLetter.TAV + NikkudEnum.SHVA + HebrewLetter.PEH + NikkudEnum.DAGESH + NikkudEnum.PATAH + HebrewLetter.NUN + NikkudEnum.SHVA + HebrewLetter.TSADI + NikkudEnum.SHVA + "'" + HebrewLetter.REISH + HebrewLetter.VAV + NikkudEnum.SHURUK + "\n" +
+			"					" + HebrewLetter.MEM + NikkudEnum.PATAH + HebrewLetter.TAV + NikkudEnum.DAGESH + NikkudEnum.KAMATS + HebrewLetter.NUN + NikkudEnum.KAMATS + HebrewLetter.HEY +
+								"," + HebrewLetter.MEM + NikkudEnum.PATAH + HebrewLetter.TAV + NikkudEnum.DAGESH + NikkudEnum.SHVA + HebrewLetter.NUN + HebrewLetter.VAV + NikkudEnum.HOLAM_M + HebrewLetter.TAV + NikkudEnum.TSERE + HebrewLetter.YOD + HebrewLetter.KAF + NikkudEnum.SEGOL + HebrewLetter.NUN_SOFIT + "\n" +
 			"			Output specification:\n" +
 			"				The output UTF-8 file is similar to the output specification for the \"Syllable segmentation by\n" +
 			"				heuristic A\" option.\n" +				

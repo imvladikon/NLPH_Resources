@@ -35,9 +35,7 @@ public class SyllabledWord {
 	public SyllabledWord(SyllabledWord iw){
 		_word = new ArrayList<HebrewLetter>();
 		ArrayList<HebrewLetter> letters = iw.getLetters();
-		for (int i=0; i<letters.size(); i++){
-			_word.add(new HebrewLetter(letters.get(i)));
-		}
+		_word.addAll(letters);
 		int[] syllables = iw.getSyllables();
 		for (int i=0; i<syllables.length; i++){
 			_syllables[i] = syllables[i];;

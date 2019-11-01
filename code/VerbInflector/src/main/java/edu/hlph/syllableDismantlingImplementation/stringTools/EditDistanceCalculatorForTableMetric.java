@@ -1,6 +1,6 @@
 package edu.hlph.syllableDismantlingImplementation.stringTools;
 
-import edu.hlph.hebrewBasicsImplementation.letters.HebrewLetter;
+import edu.hlph.hebrewBasicsImplementation.letters.Literals;
 
 public class EditDistanceCalculatorForTableMetric extends EditDistanceCalculatorForHebrew{
 
@@ -9,10 +9,10 @@ public class EditDistanceCalculatorForTableMetric extends EditDistanceCalculator
 	}
 	
 	private boolean isShvaHataf(String a, String b) {
-		boolean aShva = HebrewLetter.SHVA.equals(a);
-		boolean bHataf = (HebrewLetter.H_KAMATS.equals(b)||
-				HebrewLetter.H_PATAH.equals(b)||
-				HebrewLetter.H_SEGOL.equals(b));
+		boolean aShva = Literals.SHVA.equals(a);
+		boolean bHataf = (Literals.H_KAMATS.equals(b)||
+				Literals.H_PATAH.equals(b)||
+				Literals.H_SEGOL.equals(b));
 		return aShva&&bHataf;
 	}
 	

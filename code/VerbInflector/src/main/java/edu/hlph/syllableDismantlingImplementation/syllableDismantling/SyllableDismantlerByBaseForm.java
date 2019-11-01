@@ -7,6 +7,9 @@ import java.util.ArrayList;
 import edu.hlph.syllableDismantlingImplementation.stringTools.EditDistanceCalculator;
 import edu.hlph.hebrewBasicsImplementation.letters.HebrewLetter;
 
+import static edu.hlph.hebrewBasicsImplementation.letters.HebrewLetter.*;
+import static edu.hlph.hebrewBasicsImplementation.letters.NikkudEnum.*;
+
 public class SyllableDismantlerByBaseForm {
 
 	protected ArrayList<HebrewLetter> _word;
@@ -20,12 +23,12 @@ public class SyllableDismantlerByBaseForm {
 		int index = 0;
 		ArrayList<HebrewLetter> bform = (new VocalizedWord(baseForm)).getLetters();
 		ArrayList<HebrewLetter> iform = inflectedForm.getLetters();
-		if (bform.get(bform.size()-1).isVocalizetionEmpty()||bform.get(bform.size()-1).isVocalizetionPatah()){
-			bform.get(bform.size()-1).setVocalization_SHVA();
+		if (bform.get(bform.size()-1).isWith(EMPTY)||bform.get(bform.size()-1).isWith(PATAH)){
+			bform.get(bform.size()-1).withNikkud(SHVA);
 		}
 		ArrayList<Integer> sylls = new ArrayList<Integer>();
 		while(index<iform.size()){
-			sylls.add(new Integer(index));
+			sylls.add(index);
 			boolean foundVowel = false;
 			while(!foundVowel&&index<iform.size()){
 				if ((!this.isCompleteVowel(iform, index))&&
@@ -46,7 +49,7 @@ public class SyllableDismantlerByBaseForm {
 	}
 	
 	private boolean isPatahGanuv(ArrayList<HebrewLetter> w, int index){
-		return ((index == w.size()-1)&&(w.get(index).isVocalizetionPatah()));
+		return ((index == w.size()-1)&&(w.get(index).isWith(PATAH)));
 	}
 	
 	private int analyzeEndOfSyllable(ArrayList<HebrewLetter> baseForm,ArrayList<HebrewLetter> inflectedForm, int index){
@@ -55,15 +58,15 @@ public class SyllableDismantlerByBaseForm {
 			return index+1;
 		}
 		// NonVocalized~
-		else if(index<inflectedForm.size()-1&&inflectedForm.get(index+1).isVocalizetionEmpty()){
+		else if(index<inflectedForm.size()-1&&inflectedForm.get(index+1).isWith(EMPTY)){
 			return this.analyzeEndOfSyllable(baseForm, inflectedForm, index+1); //Recursion
 		}
 		// Shva
-		else if(index+1<inflectedForm.size()&&inflectedForm.get(index+1).isVocalizetionShva()){
+		else if(index+1<inflectedForm.size()&&inflectedForm.get(index+1).isWith(SHVA)){
 			// ShvaNach~
 			if (this.isShvaNach(baseForm, inflectedForm, index+1)){
 				if ((index+2==inflectedForm.size()-1)&&
-						((inflectedForm.get(index+2).isVocalizetionEmpty())||(inflectedForm.get(index+2).isVocalizetionShva()))){
+						((inflectedForm.get(index+2).isWith(EMPTY))||(inflectedForm.get(index+2).isWith(SHVA)))){
 					return index+3;
 				}
 				else{
@@ -86,7 +89,7 @@ public class SyllableDismantlerByBaseForm {
 	}
 	
 	private boolean isShvaNach(ArrayList<HebrewLetter> baseForm,ArrayList<HebrewLetter> inflectedForm, int index){
-		if(!inflectedForm.get(index).isVocalizetionShva()){
+		if(!inflectedForm.get(index).isWith(SHVA)){
 			return false;
 		}
 		else if(index == 0){
@@ -100,7 +103,7 @@ public class SyllableDismantlerByBaseForm {
 			VocalizedWord iForm = new VocalizedWord(this.hebrewLetterArrayListToArray(inflectedForm));
 			this._editDistanceCalc.calc(bForm.toString(), iForm.toString());
 			int shvaIndexInInflectedAlignment = this.getShvaIndexInAllignment(this._editDistanceCalc.getYAliignment(), index);
-			return HebrewLetter.SHVA.equals(this._editDistanceCalc.getXAliignment().substring(shvaIndexInInflectedAlignment, shvaIndexInInflectedAlignment+1));
+			return SHVA.getLetter().equals(this._editDistanceCalc.getXAliignment().substring(shvaIndexInInflectedAlignment, shvaIndexInInflectedAlignment+1));
 		}
 	}
 	
@@ -109,7 +112,7 @@ public class SyllableDismantlerByBaseForm {
 		for(int i=0;i<letterIndex+1;i++){
 			if (i==letterIndex){
 				allignmentindex++;
-				while (!inflectedForm.substring(allignmentindex, allignmentindex+1).equals(HebrewLetter.SHVA)){
+				while (!inflectedForm.substring(allignmentindex, allignmentindex+1).equals(SHVA.getLetter())){
 					allignmentindex++;
 				}
 			}
@@ -125,15 +128,15 @@ public class SyllableDismantlerByBaseForm {
 	
 	private boolean isCompleteVowel(ArrayList<HebrewLetter> w,int index){
 		return (index+1<w.size())&&
-		((w.get(index).isVocalizetionEmpty()&&w.get(index+1).isVav()&&w.get(index+1).isVocalizetionHolam_H())||
-				(w.get(index).isVocalizetionEmpty()&&w.get(index+1).isVav()&&w.get(index+1).isVocalizetionShuruk())||
-				(w.get(index).isVocalizetionHirik()&&w.get(index+1).isYod())||
-				(w.get(index).isVocalizetionTsere()&&w.get(index+1).isYod())||
-				(w.get(index).isVocalizetionSegol()&&w.get(index+1).isYod()));
+		((w.get(index).isWith(EMPTY))&&w.get(index+1).is(VAV)&&w.get(index+1).isWith(HOLAM_H))||
+				(w.get(index).isWith(EMPTY)&&w.get(index+1).is(VAV)&&w.get(index+1).isWith(SHURUK))||
+				(w.get(index).isWith(HIRIK)&&w.get(index+1).is(YOD))||
+				(w.get(index).isWith(TSERE)&&w.get(index+1).is(YOD))||
+				(w.get(index).isWith(SEGOL)&&w.get(index+1).is(YOD));
 	}
 	
 	private boolean isVowel(ArrayList<HebrewLetter> w,int index){
-		return w.get(index).isVocalizetionVowel();
+		return w.get(index).isWith(VOWELS);
 	}
 	
 	private HebrewLetter[] hebrewLetterArrayListToArray(ArrayList<HebrewLetter> lst){
@@ -149,7 +152,7 @@ public class SyllableDismantlerByBaseForm {
 		int len = lst.size();
 		int[] ret = new int[len];
 		for(int i=0;i<len; i++){
-			ret[i] = lst.get(i).intValue();
+			ret[i] = lst.get(i);
 		}
 		return ret;
 	}
