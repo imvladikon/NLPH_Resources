@@ -169,7 +169,6 @@ public class HebrewVerb {
 		}
 	}
 
-
 	// Vocalization setters
 
 	public void withNikkud(NikkudEnum vocalization) {

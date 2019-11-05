@@ -15,8 +15,8 @@ public abstract class ClassDistanceMetric {
 	public ClassDistanceMetric(String[] labels){
 		int numOfLabels = labels.length;
 		this._matric = new double[numOfLabels][numOfLabels];
-		this._classStringToPosInMatrix = new HashMap<String, Integer>();
-		this._posInMatrixToclassString = new HashMap<Integer, String>();
+		this._classStringToPosInMatrix = new HashMap<>();
+		this._posInMatrixToclassString = new HashMap<>();
 		for(int i=0; i<numOfLabels; i++){
 			this._classStringToPosInMatrix.put(labels[i], i);
 			this._posInMatrixToclassString.put(i, labels[i]);
@@ -39,7 +39,7 @@ public abstract class ClassDistanceMetric {
 	}
 	
 	public String toString(){
-		String ret = new String("");
+		String ret = "";
 		// the matric printing is sorted by the Strings of the classes
 		ClassificationClassComparable[] classStrings = new ClassificationClassComparable[this._matric.length];
 		int count = 0;
